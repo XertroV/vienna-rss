@@ -1857,7 +1857,7 @@ NSNotificationName const databaseDidDeleteFolderNotification = @"Database Did De
                 Folder * folder = [[Folder alloc] initWithId:newItemId parentId:newParentId name:name type:type];
                 folder.nextSiblingId = nextSibling;
                 folder.firstChildId = firstChild;
-                if (folder.type != VNAFolderTypeRSS && folder.type != VNAFolderTypeOpenReader) {
+                if (folder.type != VNAFolderTypeRSS && folder.type != VNAFolderTypeOpenReader && folder.type != VNAFolderTypeSmart) {
                     unreadCount = 0;
                 }
                 folder.unreadCount = unreadCount;
@@ -2388,7 +2388,7 @@ NSNotificationName const databaseDidDeleteFolderNotification = @"Database Did De
     // This is a good time to do a quick check to ensure that our
     // own count of unread is in sync with the folders count and fix
     // them if not.
-    if (folder && [filterString isEqualTo:@""] && (folder.type == VNAFolderTypeRSS || folder.type == VNAFolderTypeOpenReader))
+    if (folder && [filterString isEqualTo:@""] && (folder.type == VNAFolderTypeRSS || folder.type == VNAFolderTypeOpenReader || folder.type == VNAFolderTypeSmart))
     {
         if (unread_count != folder.unreadCount)
         {
