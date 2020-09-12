@@ -1008,11 +1008,12 @@
 			[realCell setInProgress:NO];
 		}
 
-		if (folder.type == VNAFolderTypeSmart)  // Because if the search results contain unread articles we don't want the smart folder name to be bold.
-		{
-			[realCell clearCount];
-		}
-		else if (folder.unreadCount)
+//		if (folder.type == VNAFolderTypeSmart)  // Because if the search results contain unread articles we don't want the smart folder name to be bold.
+//		{
+//			[realCell clearCount];
+//		}
+//		else
+        if (folder.unreadCount)
 		{
 			[realCell setCount:folder.unreadCount];
 			[realCell setCountBackgroundColour:[NSColor colorForControlTint:[NSColor currentControlTint]]];
